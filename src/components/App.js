@@ -1,14 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { LoginPage, NotFoundPage } from 'pages';
+import { MainPage, NotFoundPage } from 'pages';
+import LoginModalContainer from 'containers/modal/LoginModalContainer'
 
 const App = () => {
     return (
         <div>
             <Switch>
-                <Route path="/login" component={LoginPage}/>
+                <Route exact path="/" component={MainPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
+            <LoginModalContainer/>
         </div>
     );
 };
