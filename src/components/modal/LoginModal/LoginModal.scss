@@ -6,7 +6,40 @@
   padding: 2rem;
   position: relative;
   padding-top: 2.5rem;
-  width: 40rem;
+  width: 400px;
+  
+.login-logo{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin : 0 auto 9px;
+}
+.login-title{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px;
+    margin-bottom: 45px;
+    font-size: 20px;
+    font-weight : 850;
+    background: linear-gradient(to bottom, #F9D4C1 0%, #F3ABBF 32.04%, #C9B3D7 68.51%, #A2C0E6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
+
+.login-footer{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family : Poppins;
+    color: #929699;
+
+}
+
   .close {
     line-height: 2rem;
     font-size: 2rem;
@@ -25,29 +58,40 @@
 
   .google {
     @include social-button();
-    background-image: url("http://localhost:7777/oauth_google.PNG");
+    background-image: url("http://localhost:7777/G+.PNG");
   }
   .facebook{
     @include social-button();
-    background-image: url("http://localhost:7777/oauth_facebook.PNG");
+    background-image: url("http://localhost:7777/fb.PNG");
   }
   .kakao{
     @include social-button();
-    background-image: url("http://localhost:7777/oauth_kakao.PNG");
+    background-image: url("http://localhost:7777/kakao-login.PNG");
   }
 
   .login-btn{
     display: block;
-    width: 313px;
-    height: 51px;
+    width: 260px;
+    height: 42px;
+    border-radius: 8px;
     margin: 0 auto 9px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
     font-size: 16px;
-    color: #fff;
+    line-height: 19px;
+    /* or 119% */
+    
     text-align: center;
+    color: #FFFFFF;
+
     line-height: 52px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
     border: none;
-    background-color: white;
   }
   .error {
     margin-top: 0.5rem;
