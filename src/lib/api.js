@@ -17,4 +17,5 @@ const request = () => {
     return headers;
 };
 
-export const login = ({usernameOrEmail, password}) => axios.post('/api/auth/login', {usernameOrEmail, password});
+export const login = (socialType) => axios.get('/oauth2/authorization/' + socialType);
+export const testConnect = () => axios.get('/facebook');

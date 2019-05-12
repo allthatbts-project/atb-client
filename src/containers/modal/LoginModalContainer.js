@@ -10,13 +10,24 @@ class LoginModalContainer extends Component {
         const { BaseActions, password } = this.props;
         const { name } = e.target;
         try{
-            await BaseActions.login(password);
+            window.location.href = "http://localhost:7777/oauth2/authorization/" + name;
+            //await BaseActions.login(name);
             BaseActions.hideModal('login');
             localStorage.logged = "true";
         } catch(e) {
             console.log(e);
         }
     };
+
+    testConnect = async () => {
+        const { BaseActions } = this.props;
+        try{
+            await BaseActions.testConnect();
+        } catch(e) {
+            console.log(e);
+        }
+    };
+
     handleCancel = () => {
         const { BaseActions } = this.props;
         BaseActions.hideModal('login');
@@ -34,7 +45,7 @@ class LoginModalContainer extends Component {
 
     render() {
         const {
-            handleLogin, handleCancel, handleChange, handleKeyPress
+            handleLogin, handleCancel, handleChange, handleKeyPress, testConnect
         } = this;
         const { visible, error, password } = this.props;
 
@@ -42,6 +53,7 @@ class LoginModalContainer extends Component {
             <LoginModal
                 onLogin={handleLogin} onCancel={handleCancel}
                 onChange={handleChange} onKeyPress={handleKeyPress}
+                onTestConnect={testConnect}
                 visible={visible} error={error} password={password}
             />
         )

@@ -21,7 +21,7 @@ class HeaderContainer extends Component {
         }
         BaseActions.showModal('login');
         BaseActions.initializeLogin();
-    }
+    };
     render() {
         const { handleLoginClick } = this;
         const { match } = this.props;
