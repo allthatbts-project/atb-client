@@ -10,7 +10,11 @@ class MainContainer extends Component {
         const { } = this.props;
 
         return (
-            <div>Main Body</div>
+            <div>
+                Main Body
+                <br/>
+                <a href={'/test'}>test</a>
+            </div>
         );
     }
 }
