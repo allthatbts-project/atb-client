@@ -1,0 +1,90 @@
+@import "utils";
+
+.search-title+.search-input{
+  margin-top: 60px;
+}
+
+
+.search-title{
+  margin-left: 14.1%;
+  padding-top: 120px;
+  font-family: Poppins;
+  font-style: normal;
+
+
+  .title{
+    font-size: 45px;
+    font-weight : 850;
+    background: linear-gradient(to bottom, #F9D4C1 0%, #F3ABBF 32.04%, #C9B3D7 68.51%, #A2C0E6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+  }
+  .abts-logo{
+    width: 23.32px;
+    height: 37.69px;
+  }
+  .subtitle{
+    font-size: 43px;
+    font-weight: 650;
+    background: #383838;;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    }
+}
+
+.search-input {
+    display: flex;
+    padding: 0.5rem;
+
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 16px #ECECEC;
+    border-radius: 5px;
+
+    margin-left: 14.1%;
+    margin-right: 14.1%;
+    max-height: 68.21px;
+
+
+
+    input {
+        flex: 1; // 부모 요소에서 search-buttonn을 제외한 나머지 공간을 차지
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 90%;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: #767676;
+    }
+    .search-icon {
+      margin : 10px;
+      align-items: center;
+      justify-content: 'center';
+      background-image: url("http://localhost:7777/search-icon.PNG");
+      color: #767676;
+      width: 24.16px;
+      height: 22.75px;
+    }
+    .search-button {
+        height: 45.47 px;
+        width: 95.37px;
+        border-radius: 5px;
+        display: flex;
+        //가운데정렬
+        justify-content: center;
+        align-items: center;
+        font-size: 90%;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        color: white;
+        line-height: 25px;
+        /* or 132% */
+
+        background: linear-gradient(180deg, #F9D4C1 0%, #F3ABBF 32.04%, #C9B3D7 68.51%, #A2C0E6 100%);
+    }
+
+}
