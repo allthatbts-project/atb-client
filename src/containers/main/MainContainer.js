@@ -2,8 +2,21 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
+import * as mainActions from 'store/modules/main';
 
 class MainContainer extends Component {
+    initialize = async () => {
+        const { MainActions } = this.props;
+        try{
+            await MainActions.getMainInfo();
+        }catch(e){
+            console.log(e);
+        }
+    };
+
+    componentDidMount() {
+        this.initialize();
+    };
 
     render() {
         const { } = this;
@@ -24,6 +37,6 @@ export default connect(
 
     }),
     (dispatch) => ({
-
+        MainActions: bindActionCreators(mainActions, dispatch)
     })
 )(MainContainer);

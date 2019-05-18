@@ -18,4 +18,4 @@ const request = () => {
 };
 
 export const login = (socialType) => axios.get('/oauth2/authorization/' + socialType);
-export const testConnect = () => axios.get('/facebook');
+export const getMainInfo = () => axios.get('/api/main');

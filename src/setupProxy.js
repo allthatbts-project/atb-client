@@ -1,7 +1,7 @@
 const proxy = require('http-proxy-middleware');
 
 module.exports = function(app) {
-    const proxyUrlPatterns = ['/oauth2/authorization/**', '/login/oauth2/**'];
+    const proxyUrlPatterns = ['/oauth2/authorization/**', '/login/oauth2/**', '/api/**'];
 
     proxyUrlPatterns.forEach(each => {
         app.use(

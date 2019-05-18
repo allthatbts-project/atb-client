@@ -11,7 +11,6 @@ const HIDE_MODAL = 'base/HIDE_MODAL';
 const LOGIN = 'base/LOGIN';
 const CHANGE_INPUT = 'base/CHANGE_INPUT';
 const INITIALIZE_LOGIN = 'base/INITIALIZE_LOGIN';
-const TEST_CONNECT = 'base/TEST_CONNECT';
 
 // action creators
 export const showModal = createAction(SHOW_MODAL);
@@ -19,7 +18,6 @@ export const hideModal = createAction(HIDE_MODAL);
 export const login = createAction(LOGIN, api.login);
 export const changeInput = createAction(CHANGE_INPUT);
 export const initializeLogin = createAction(INITIALIZE_LOGIN);
-export const testConnect = createAction(TEST_CONNECT, api.testConnect);
 
 // initial state
 const initialState = Map({

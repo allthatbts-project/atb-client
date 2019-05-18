@@ -13,7 +13,7 @@ class LoginModalContainer extends Component {
             window.location.href = "/oauth2/authorization/" + name;
             //await BaseActions.login(name);
             BaseActions.hideModal('login');
-            localStorage.logged = "true";
+            //localStorage.logged = "true";
         } catch(e) {
             console.log(e);
         }
