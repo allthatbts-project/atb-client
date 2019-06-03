@@ -8,27 +8,24 @@ import { bindActionCreators } from 'redux';
 
 class HeaderContainer extends Component {
     handleLoginClick = () => {
-        const logged = localStorage.logged;
+        const {logged} = this.props;
         const { BaseActions, history } = this.props;
+        BaseActions.initializeLogin();
         if(logged){
             try{
-                localStorage.removeItem("accessToken");
-                localStorage.logged = '';
                 window.location.reload();
             }catch(e){console.log(e);
             }
             return;
         }
         BaseActions.showModal('login');
-        BaseActions.initializeLogin();
     };
     render() {
         const { handleLoginClick } = this;
-        const { match } = this.props;
-        const logged = localStorage.logged;
+        const { logged, name, imageUrl } = this.props;
         return (
             <Header
-                logged={logged}
+                logged={logged} name={name} imageUrl={imageUrl}
                 onLoginClick={handleLoginClick}
             />
         );
@@ -36,7 +33,11 @@ class HeaderContainer extends Component {
 }
 
 export default connect(
-    null,
+    (state) => ({
+        logged: state.base.getIn(['userInfo', 'token']) !== '',
+        name: state.base.getIn(['userInfo', 'name']),
+        imageUrl: state.base.getIn(['userInfo', 'imageUrl']),
+    }),
     (dispatch) => ({
         BaseActions: bindActionCreators(baseActions, dispatch)
     })

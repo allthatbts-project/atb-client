@@ -11,6 +11,7 @@ const HIDE_MODAL = 'base/HIDE_MODAL';
 const LOGIN = 'base/LOGIN';
 const CHANGE_INPUT = 'base/CHANGE_INPUT';
 const INITIALIZE_LOGIN = 'base/INITIALIZE_LOGIN';
+const GET_OAUTH2_USER = 'base/GET_OAUTH2_USER';
 
 // action creators
 export const showModal = createAction(SHOW_MODAL);
@@ -18,18 +19,23 @@ export const hideModal = createAction(HIDE_MODAL);
 export const login = createAction(LOGIN, api.login);
 export const changeInput = createAction(CHANGE_INPUT);
 export const initializeLogin = createAction(INITIALIZE_LOGIN);
+export const getOauth2User = createAction(GET_OAUTH2_USER, api.getOauth2User);
 
 // initial state
 const initialState = Map({
     modal: Map({
-        remove: false,
         login: false
     }),
-    login: Map({
-        usernameOrEmail: '',
-        password: '',
-        error: false
+    userInfo: Map({
+        id: '',
+        name: '',
+        email: '',
+        imageUrl: '',
+        socialType: '',
+        role: '',
+        token: '',
     }),
+
     signUp: Map({
         username: '',
         email: '',
@@ -60,11 +66,22 @@ export default handleActions({
                 .setIn(['login', 'password'], '');
         }
     }),
+    ...pender({
+        type: GET_OAUTH2_USER,
+        onSuccess: (state, action) => {
+            const { data } = action.payload;
+            return state.set('userInfo', data);
+        },
+        onError: (state, action) => {
+            return state.setIn(['login', 'error'], true)
+                .setIn(['login', 'password'], '');
+        }
+    }),
     [CHANGE_INPUT]: (state, action) => {
         const { name, value } = action.payload;
         return state.setIn(['login', name], value);
     },
     [INITIALIZE_LOGIN]: (state, action) => {
-        return state.set('loginModal', initialState.get('loginModal'));
+        return state.set('userInfo', initialState.get('userInfo'));
     },
 }, initialState)

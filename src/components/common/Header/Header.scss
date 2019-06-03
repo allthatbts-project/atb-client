@@ -24,10 +24,38 @@
 
     .brand{
       align-items: center;
-      justify-content: 'center';
+      justify-content: center;
       background-image: url("http://localhost:7777/hamberger.PNG");
       color:#C9B3D7;
     }
+
+    .userInfo {
+      margin-left : auto;
+      display: flex;
+      flex-direction: column;
+      width: 10%;
+    .thumb {
+      width: 2rem;
+      height: 2rem;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      border-radius: 34px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      content: '';
+    }
+    .nick .name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: inline-block;
+      max-width: 80px;
+      vertical-align: middle;
+      color: #46465a;
+    }
+  }
 
     .login {
       font-family: Poppins;
@@ -35,9 +63,13 @@
       font-weight: 500;
       font-size: 14px;
       margin-left: auto;
-
+      line-height: 30px;
+      display: block;
       color: #474747;
       cursor: pointer;
+      .name{
+
+      }
       &:hover {
         color:#C9B3D7;
       }

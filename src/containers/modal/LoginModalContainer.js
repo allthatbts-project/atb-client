@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as baseActions from 'store/modules/base';
-
 import LoginModal from "../../components/modal/LoginModal/LoginModal";
+import {OAUTH2_REDIRECT_URI} from "../../constants";
 
 class LoginModalContainer extends Component {
     handleLogin = async (e) => {
-        const { BaseActions, password } = this.props;
+        const { BaseActions } = this.props;
         const { name } = e.target;
         try{
-            window.location.href = "/oauth2/authorization/" + name;
-            //await BaseActions.login(name);
+            window.location.href = "/oauth2/authorization/" + name + '?redirect_uri=' + OAUTH2_REDIRECT_URI;
             BaseActions.hideModal('login');
             //localStorage.logged = "true";
         } catch(e) {

@@ -4,11 +4,13 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import * as mainActions from 'store/modules/main';
 
+
 class MainContainer extends Component {
     initialize = async () => {
         const { MainActions } = this.props;
         try{
-            await MainActions.getMainInfo();
+            await MainActions.getUtubeInfoList();
+            await MainActions.getInstagramInfoList();
         }catch(e){
             console.log(e);
         }
@@ -19,14 +21,11 @@ class MainContainer extends Component {
     };
 
     render() {
-        const { } = this;
-        const { } = this.props;
 
         return (
             <div>
                 Main Body
                 <br/>
-                <a href={'/test'}>test</a>
             </div>
         );
     }

@@ -18,4 +18,7 @@ const request = () => {
 };
 
 export const login = (socialType) => axios.get('/oauth2/authorization/' + socialType);
-export const getMainInfo = () => axios.get('/api/main');
+export const getOauth2User = () => axios.get('/api/user');
+
+export const getUtubeInfoList = () => axios.get('/api/main/utube');
+export const getInstagramInfoList = () => axios.get('/api/main/instagram');

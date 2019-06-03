@@ -3,12 +3,11 @@ import styles from './LoginModal.scss';
 import classNames from 'classnames/bind';
 import ModalWrapper from 'components/modal/ModalWrapper';
 import { Link } from 'react-router-dom';
+import googleLogo from '../../../img/google-logo.png';
 
 const cx = classNames.bind(styles);
 
 const LoginModal = ({visible, password, error, onCancel, onLogin, onTestConnect}) => {
-
-
     return(
         <ModalWrapper visible={visible}>
             <div className={cx('form')}>
@@ -20,6 +19,8 @@ const LoginModal = ({visible, password, error, onCancel, onLogin, onTestConnect}
                 <button name='google' onClick={onLogin} className={cx('login-btn', 'google')}>구글계정으로 로그인</button>
                 <button name='facebook' onClick={onLogin} className={cx('login-btn', 'facebook')}>페이스북으로 로그인</button>
                 <button name='kakao' onClick={onLogin} className={cx('login-btn', 'kakao')}>카카오톡으로 로그인</button>
+                {/*<a className="btn btn-block social-btn google" href="http://localhost:7777/oauth2/authorization/google?redirect_uri=http://localhost:3000/oauth2/redirect">*/}
+                {/*    <img src={googleLogo} alt="Google" /> Log in with Google</a>*/}
                 <Link to="/"><span className={cx('login-footer')}>로그인에 문제가 있으세요?</span></Link>
             </div>
         </ModalWrapper>
