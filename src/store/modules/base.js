@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import { pender } from 'redux-pender';
 
 import * as api from 'lib/api';
@@ -26,16 +26,6 @@ const initialState = Map({
     modal: Map({
         login: false
     }),
-    userInfo: Map({
-        id: '',
-        name: '',
-        email: '',
-        imageUrl: '',
-        socialType: '',
-        role: '',
-        token: '',
-    }),
-
     signUp: Map({
         username: '',
         email: '',
@@ -69,8 +59,8 @@ export default handleActions({
     ...pender({
         type: GET_OAUTH2_USER,
         onSuccess: (state, action) => {
-            const { data } = action.payload;
-            return state.set('userInfo', data);
+            const { data:userInfo } = action.payload;
+            sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
         },
         onError: (state, action) => {
             return state.setIn(['login', 'error'], true)

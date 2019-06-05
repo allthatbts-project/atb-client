@@ -18,15 +18,6 @@ class LoginModalContainer extends Component {
         }
     };
 
-    testConnect = async () => {
-        const { BaseActions } = this.props;
-        try{
-            await BaseActions.testConnect();
-        } catch(e) {
-            console.log(e);
-        }
-    };
-
     handleCancel = () => {
         const { BaseActions } = this.props;
         BaseActions.hideModal('login');

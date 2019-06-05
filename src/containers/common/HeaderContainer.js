@@ -5,12 +5,14 @@ import { withRouter } from 'react-router-dom';
 import * as baseActions from 'store/modules/base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Map, fromJS } from 'immutable';
 
 class HeaderContainer extends Component {
+
     handleLoginClick = () => {
         const {logged} = this.props;
         const { BaseActions, history } = this.props;
-        BaseActions.initializeLogin();
+        sessionStorage.removeItem('userInfo');
         if(logged){
             try{
                 window.location.reload();
@@ -22,10 +24,10 @@ class HeaderContainer extends Component {
     };
     render() {
         const { handleLoginClick } = this;
-        const { logged, name, imageUrl } = this.props;
+        const { logged, userInfo } = this.props;
         return (
             <Header
-                logged={logged} name={name} imageUrl={imageUrl}
+                logged={logged} userInfo={userInfo}
                 onLoginClick={handleLoginClick}
             />
         );
@@ -34,9 +36,8 @@ class HeaderContainer extends Component {
 
 export default connect(
     (state) => ({
-        logged: state.base.getIn(['userInfo', 'token']) !== '',
-        name: state.base.getIn(['userInfo', 'name']),
-        imageUrl: state.base.getIn(['userInfo', 'imageUrl']),
+        userInfo: sessionStorage.getItem('userInfo'),
+        logged: sessionStorage.getItem('userInfo') !== null,
     }),
     (dispatch) => ({
         BaseActions: bindActionCreators(baseActions, dispatch)
