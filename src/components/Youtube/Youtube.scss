@@ -1,0 +1,72 @@
+@import "utils";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+.youtube{
+margin-left: 14.1%;
+margin-right: 14.1%;
+margin-top: 70px;
+
+    .card-title{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight : 850;
+    font-size: 26px;
+    color: #484848;
+    }
+
+    .youtube-body{
+
+      width: 243px;
+      height:  277px;
+    }
+
+    .youtube-sumnale{
+      width: 243px;
+      height: 164;
+      background: #D8D8D8;
+      border-radius: 3px;
+    }
+
+    .youtube-user{
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 20px;
+      /* identical to box height, or 182% */
+
+      letter-spacing: 0.11px;
+      text-transform: uppercase;
+
+      color: #002B37;
+
+    }
+    .youtube-contents{
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 22px;
+      /* or 129% */
+      
+      letter-spacing: 0.17px;
+      
+      color: #464646;
+    }
+    .youtube-tag{
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 20px;
+      /* identical to box height, or 182% */
+      letter-spacing: 0.11px;
+      text-transform: uppercase;
+
+      color:black;
+
+    }
+
+  }
