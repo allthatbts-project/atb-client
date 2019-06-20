@@ -22,3 +22,9 @@ export const getOauth2User = () => axios.get('/api/user');
 
 export const getUtubeInfoList = () => axios.get('/api/main/utube');
 export const getInstagramInfoList = () => axios.get('/api/main/instagram');
+
+export const getPost = (id) => axios.get(`/api/posts/${id}`);
+
+//post 목록 가져오기
+export const getPostList = ({ tag, page }) => axios.get(`/api/posts/?${queryString.stringify({ tag, page })}`);
+

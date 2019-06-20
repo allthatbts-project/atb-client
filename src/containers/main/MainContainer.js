@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import * as mainActions from 'store/modules/main';
 
-
 class MainContainer extends Component {
     initialize = async () => {
         const { MainActions } = this.props;
@@ -20,13 +19,16 @@ class MainContainer extends Component {
         this.initialize();
     };
 
+   
     render() {
 
         return (
             <div>
+
                 Main Body
                 <br/>
             </div>
+            
         );
     }
 }
