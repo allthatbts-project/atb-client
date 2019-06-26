@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { MainPage, NotFoundPage } from 'pages';
+import { MainPage, BoardPage, PostPage, NotFoundPage } from 'pages';
 import LoginModalContainer from 'containers/modal/LoginModalContainer';
 import OAuth2RedirectHandler from "./oauth2";
 
@@ -10,6 +10,8 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={MainPage}/>
                     <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+                    <Route path="/board" component={BoardPage}/>
+                    <Route path="/post/:id" component={PostPage}/>
                     <Route component={NotFoundPage}/>
                 </Switch>
                 <LoginModalContainer/>

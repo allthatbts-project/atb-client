@@ -1,0 +1,22 @@
+.BoardList {
+    width: 50rem;
+    padding-top: 120px;
+    margin-left: 14.1%;
+}
+
+.BoardTable {
+    width: 100%;
+    border: 1px solid #444444;
+
+    th, td {
+        border: 1px solid #444444;
+      }
+}
+
+
+@media (max-width: 768px){
+    .BoardWrapper {
+        width: 90%;
+    }
+
+}
