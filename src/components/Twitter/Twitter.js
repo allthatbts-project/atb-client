@@ -7,7 +7,6 @@ import Card from '@bit/react-bootstrap.react-bootstrap.card';
 
 const cx = classNames.bind(styles);
 
-  
 const settings = {
   infinite: true,
   slidesToShow: 3,
@@ -17,59 +16,47 @@ const settings = {
   pauseOnHover: true,
 };
 
-const TwitterItem = ({ message, fullname, username,tag }) => {
+const TwitterItem = ({ twitterInfo }) => {
+    const { accountName, url, tweetText, hashtags, retweetCnt } = twitterInfo.toJS();
   return (
     <Card style={{ width: '18rem' }}>
+        <Card.Link href={url}>
           <Card.Body className={cx('twitter-body')}>
-            <Card.Title className={cx('twitter-user')}>@계정명</Card.Title>
-            <Card.Link href="https://twitter.com/BTS_twt/status/1102514349875183617">
+            <Card.Title className={cx('twitter-user')}>@{accountName}</Card.Title>
+
                 <Card.Text className={cx('twitter-contents')}>
-                <label>앞으로 우리도 응원할게요<br/>
-                        화이팅<br/>
-                        데뷔 진심으로 축하합니다☺️👍🙏👏👏<br/>
+                <label>
+                    {tweetText}
                 </label> 
                 </Card.Text>
-            </Card.Link>
+
             <Card.Link className={cx('twitter-tag')}>
-              <Link key={tag} to={'/테그주소입력할것'}><label>#JIMIN #TXT</label><br/></Link>
+              <Link key="" to={'/테그주소입력할것'}><label>{hashtags}</label><br/></Link>
             </Card.Link>
-              <label style={{ fontSize: '14px' }}>12.2M Tweets</label>
+              <label style={{ fontSize: '14px' }}>retweet: {retweetCnt}</label>
           </Card.Body>
+        </Card.Link>
     </Card>
   )
 }
 
-const Twitter = () => {
-
+const Twitter = ({ twitterInfos }) => {
+    const twiiterInfoList = twitterInfos.size > 0 && twitterInfos.map(
+        (twitterInfo, index) => {
+            return(
+                <div>
+                    <TwitterItem twitterInfo={twitterInfo}/>
+                </div>
+            )
+        }
+    );
   return (
-
     <div className ={cx('twitter')}>
       <div className={cx('card-title')}>Twitter</div>
-
-      
       <Slider {...settings} >
-        <div>
-        {/* 여기에 Twitter API에서 받아온 데이터 넣어줄것 */}
-          <TwitterItem/>
-        </div>
-        <div>
-          <TwitterItem/>
-        </div>
-        <div>
-          <TwitterItem/>
-        </div>
-        <div>
-          <TwitterItem/>
-        </div>
-        <div>
-          <TwitterItem/>
-        </div>
-        <div>
-          <TwitterItem/>
-        </div>
+          {twiiterInfoList}
       </Slider>
     </div>
     );
-  }
-
-  export default Twitter;
+};
+export default Twitter;

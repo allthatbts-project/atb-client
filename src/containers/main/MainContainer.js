@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import * as mainActions from 'store/modules/main';
+import Twitter from 'components/Twitter';
+import Youtube from 'components/Youtube';
 
 class MainContainer extends Component {
     initialize = async () => {
         const { MainActions } = this.props;
         try{
-            await MainActions.getUtubeInfoList();
-            await MainActions.getInstagramInfoList();
+            await MainActions.getYoutubeInfoList();
+            await MainActions.getTwitterInfoList();
+            //await MainActions.getInstagramInfoList();
         }catch(e){
             console.log(e);
         }
@@ -21,12 +24,11 @@ class MainContainer extends Component {
 
    
     render() {
-
+        const { youtubeInfos, twitterInfos } = this.props;
         return (
             <div>
-
-                Main Body
-                <br/>
+                <Twitter twitterInfos={twitterInfos}/>
+                <Youtube youtubeInfos={youtubeInfos}/>
             </div>
             
         );
@@ -35,7 +37,8 @@ class MainContainer extends Component {
 
 export default connect(
     (state) => ({
-
+        youtubeInfos: state.main.get('youtubeInfos'),
+        twitterInfos: state.main.get('twitterInfos'),
     }),
     (dispatch) => ({
         MainActions: bindActionCreators(mainActions, dispatch)

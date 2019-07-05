@@ -16,54 +16,42 @@ const settings = {
   slidesToScroll: 3
 };
 
-const YoutubeItem = ({ message, fullname, username,tag }) => {
+const YoutubeItem = ({ youtubeInfo }) => {
+  const { channelName, thumbnailImgUrl, url, title, viewCnt, likeCnt, createDt } = youtubeInfo.toJS();
+
   return (
     <Card style={{ width: '18rem' }}>
+      <Card.Link href={url}>
           <Card.Body className={cx('youtube-body')}>
-            <Card.Title className={cx('youtube-user')}>@계정명</Card.Title>
-            <img className={cx('youtube-sumnale')} src="https://i.ytimg.com/vi/MBdVXkSdhwU/maxresdefault.jpg"/>
-            <Card.Link href="https://www.youtube.com/watch?v=Bs8Ig7v6Q9g">
+            <Card.Title className={cx('youtube-user')}>{channelName}</Card.Title>
+            <img className={cx('youtube-sumnale')} src={thumbnailImgUrl}/>
                 <Card.Text className={cx('youtube-contents')}>
-                <label>VOD제목_[방탄소년단/지민/음색깡패 1위 아이돌의 기계음 1도 안 썪인 음색]</label>
+                <label>{title}</label>
                 </Card.Text>
-            </Card.Link>
-              <label style={{ fontSize: '14px' }}>12.2M Tweets</label>
+              <label style={{ fontSize: '14px' }}>조회수 {viewCnt}</label>
           </Card.Body>
+      </Card.Link>
     </Card>
   )
 }
 
-const Youtube = () => {
-
+const Youtube = ({youtubeInfos}) => {
+  const youTubeInfoList = youtubeInfos.size > 0 && youtubeInfos.map(
+      (youtubeInfo, index) => {
+        return(
+          <div>
+            <YoutubeItem youtubeInfo={youtubeInfo}/>
+          </div>
+        )
+      }
+  );
   return (
-
-    <div className ={cx('youtube')}>
-      <div className={cx('card-title')}>Youtube</div>
-
-      
-      <Slider {...settings} >
-        <div>
-        {/* 여기에 Youtube API에서 받아온 데이터 넣어줄것 */}
-          <YoutubeItem/>
-        </div>
-        <div>
-          <YoutubeItem/>
-        </div>
-        <div>
-          <YoutubeItem/>
-        </div>
-        <div>
-          <YoutubeItem/>
-        </div>
-        <div>
-          <YoutubeItem/>
-        </div>
-        <div>
-          <YoutubeItem/>
-        </div>
-      </Slider>
-    </div>
-    );
-  }
-
-  export default Youtube;
+  <div className ={cx('youtube')}>
+    <div className={cx('card-title')}>Youtube</div>
+    <Slider {...settings} >
+      {youTubeInfoList}
+    </Slider>
+  </div>
+  );
+};
+export default Youtube;

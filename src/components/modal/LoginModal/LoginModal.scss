@@ -58,15 +58,15 @@
 
   .google {
     @include social-button();
-    background-image: url("http://localhost:7777/G+.PNG");
+    background-image: url("http://localhost:7777/G+.png");
   }
   .facebook{
     @include social-button();
-    background-image: url("http://localhost:7777/fb.PNG");
+    background-image: url("http://localhost:7777/fb.png");
   }
   .kakao{
     @include social-button();
-    background-image: url("http://localhost:7777/kakao-login.PNG");
+    background-image: url("http://localhost:7777/kakao-login.png");
   }
 
   .login-btn{

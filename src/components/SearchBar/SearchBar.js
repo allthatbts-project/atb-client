@@ -15,7 +15,7 @@ const SearchBar = ({value,onChange,onSearch}) => {
     return(
         <div>
             <div className={cx('search-title')}>
-               <div className={cx('title')}>All That BTS  <img className={cx('atbs-logo')} src="http://localhost:7777/abts-logo.PNG"/></div>
+               <div className={cx('title')}>All That BTS  <img className={cx('atbs-logo')} src="http://localhost:7777/abts-logo.png"/></div>
                <div className={cx('subtitle')}>LOVE YOUR SELF</div>
             </div>
             {/* 검색바 구역 */}

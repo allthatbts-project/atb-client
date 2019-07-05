@@ -3,7 +3,6 @@ import styles from './LoginModal.scss';
 import classNames from 'classnames/bind';
 import ModalWrapper from 'components/modal/ModalWrapper';
 import { Link } from 'react-router-dom';
-import googleLogo from '../../../img/google-logo.png';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +12,7 @@ const LoginModal = ({visible, password, error, onCancel, onLogin, onTestConnect}
             <div className={cx('form')}>
                 <div onClick={onCancel} className={cx('close')}>&times;</div>
                 <div className={cx('login-logo')}>
-                <img src="http://localhost:7777/abts-logo.PNG"/>
+                <img src="http://localhost:7777/abts-logo.png"/>
                 </div>
                 <span className={cx('login-title')}>WELCOME TO ABTS</span>
                 <button name='google' onClick={onLogin} className={cx('login-btn', 'google')}>구글계정으로 로그인</button>
