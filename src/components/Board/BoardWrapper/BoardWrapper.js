@@ -3,6 +3,7 @@ import styles from "./BoardWrapper.scss";
 import BoardItem from "components/Board/BoardItem";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
+import Table from 'react-bootstrap/Table';
 
 const cx = classNames.bind(styles);
 
@@ -14,7 +15,7 @@ const BoardWrapper = ({ BoardItemList }) => {
   return (
     <div>
       <div className="BoardList">
-        <table className="BoardTable">
+        <Table responsive className="BoardTable">
           <thead>
             <tr>
               <th>번호</th>
@@ -67,7 +68,7 @@ const BoardWrapper = ({ BoardItemList }) => {
               createDate={"2019-05-02"}
             />
           </tbody>
-        </table>
+        </Table>
         <div className="ButtonArea">
         <Link to="/">
           <button className="Write">글쓰기</button>

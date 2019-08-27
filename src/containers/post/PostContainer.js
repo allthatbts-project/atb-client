@@ -13,10 +13,10 @@ import queryString from 'query-string';
 class PostContainer extends Component {
 
     constructor(props) {
-        super();
+        super(props);
         // initializes component state
         this.state = {
-            postId: 1,
+            postId: this.props.postId,
             fetching: false, // tells whether the request is waiting for response or not
             post: {
                 title: null,
@@ -28,8 +28,7 @@ class PostContainer extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.match.params);
-        this.fetchPostInfo(1);
+        this.fetchPostInfo(this.state.postId);
     }
 
     fetchPostInfo = async (postId) => {
@@ -64,7 +63,6 @@ class PostContainer extends Component {
 
     render() {
         const {postId, fetching, post, comments} = this.state;
-
         return (
             <PostWrapper>
                 <Post

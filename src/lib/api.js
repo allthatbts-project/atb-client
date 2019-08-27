@@ -35,3 +35,37 @@ export function getPost(postId) {
 export function getComments(postId) {
     return axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
 }
+
+export function getCategoryList() {
+    let jsonString = [
+        {
+            "CategoryId": 1,
+            "CategoryName": "공지"
+        },
+        {
+            "CategoryId": 2,
+            "CategoryName": "잡담"
+        },
+        {
+            "CategoryId": 3,
+            "CategoryName": "후기"
+        },
+    ]
+    return jsonString;
+}
+
+export function setPost(boardId, category, title, contents, tags) {
+    return axios.post('/api/post/setPost', {
+        BoardId : boardId,
+        Category : category,
+        Title : title,
+        Contents : contents,
+        Tags : tags
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
